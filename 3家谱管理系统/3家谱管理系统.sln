@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3家谱管理系统", "3家谱管理系统.vcxproj", "{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}.Debug|x64.ActiveCfg = Debug|x64
+		{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}.Debug|x64.Build.0 = Debug|x64
+		{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}.Release|x64.ActiveCfg = Release|x64
+		{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96CEF26C-E380-43DD-88F0-70B1AF97CBC8}
+	EndGlobalSection
+EndGlobal
