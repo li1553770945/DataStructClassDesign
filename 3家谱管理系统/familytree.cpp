@@ -17,15 +17,24 @@
 
 #include <iostream>
 using namespace std;
+class Date {
+public:
+	int year, month, day;
+	Date(int _year=1900, int _month=1, int _day=1)
+	{
+		year = _year;
+		month = _month;
+		day = _day;
+	}
+};
 class People {
 public:
 	char name[10];
 	char sex[7];
-
-
+	Date birthday;
+	bool married;
+	char addr[50];
+	char work[20];
+	bool live;
+	Date death_date;000000000000000
 };
-int main()
-{
-	
-	return 0;
-}

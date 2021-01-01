@@ -120,6 +120,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <StackReserveSize>
+      </StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,6 +144,8 @@
     <ClCompile Include="1模拟实现银行叫号系统\1模拟实现银行的叫号系统.cpp" />
     <ClCompile Include="2算数表达式求值\2算数表达式求值.cpp" />
     <ClCompile Include="4最小生成树\4最小生成树.cpp" />
+    <ClCompile Include="5、行车路线.cpp" />
+    <ClCompile Include="6、哈希查找.cpp" />
     <ClCompile Include="7排序算法比较\7排序算法比较.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

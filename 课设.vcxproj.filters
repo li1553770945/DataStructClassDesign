@@ -27,5 +27,11 @@
     <ClCompile Include="7排序算法比较\7排序算法比较.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="5、行车路线.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="6、哈希查找.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

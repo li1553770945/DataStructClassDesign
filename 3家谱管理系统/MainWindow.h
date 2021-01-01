@@ -9,7 +9,6 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = Q_NULLPTR);
-
 private:
     Ui::MainWindowClass ui;
 };
