@@ -163,3 +163,7 @@ $RECYCLE.BIN/
 # VisualStudioCode
 .vscode
 .vs
+*.exe
+*.docx
+*.doc
+*.jpg

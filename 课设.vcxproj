@@ -120,8 +120,9 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <StackReserveSize>
-      </StackReserveSize>
+      <StackReserveSize>20000000</StackReserveSize>
+      <StackCommitSize>
+      </StackCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,11 +143,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="1模拟实现银行叫号系统\1模拟实现银行的叫号系统.cpp" />
+    <ClCompile Include="24点\24点.cpp" />
     <ClCompile Include="2算数表达式求值\2算数表达式求值.cpp" />
     <ClCompile Include="4最小生成树\4最小生成树.cpp" />
-    <ClCompile Include="5、行车路线.cpp" />
-    <ClCompile Include="6、哈希查找.cpp" />
+    <ClCompile Include="5行车路线\5行车路线.cpp" />
+    <ClCompile Include="6哈希查找\6哈希查找.cpp" />
     <ClCompile Include="7排序算法比较\7排序算法比较.cpp" />
+    <ClCompile Include="huffman编码\huffman.cpp" />
+    <ClCompile Include="temp.cpp" />
+    <ClCompile Include="公交路线\公交路线.cpp" />
+    <ClCompile Include="公交路线\公交路线1.cpp" />
+    <ClCompile Include="最短路\最短路.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

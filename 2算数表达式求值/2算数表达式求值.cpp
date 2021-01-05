@@ -122,6 +122,7 @@
 //}
 //Status input(string &suffix)
 //{
+//	cout << "请输入表达式，按↑键可以重新输入上次的表达式" << endl;
 //	string str;
 //	cin >> str;
 //	if (str == "#")

@@ -27,10 +27,28 @@
     <ClCompile Include="7排序算法比较\7排序算法比较.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="5、行车路线.cpp">
+    <ClCompile Include="5行车路线\5行车路线.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="6、哈希查找.cpp">
+    <ClCompile Include="6哈希查找\6哈希查找.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="24点\24点.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="公交路线\公交路线.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="最短路\最短路.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="temp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="公交路线\公交路线1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="huffman编码\huffman.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

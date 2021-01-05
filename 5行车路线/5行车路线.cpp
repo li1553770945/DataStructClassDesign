@@ -51,7 +51,6 @@
 //			}
 //			else
 //			{
-//
 //				if (disc[u] - little[u] * little[u] + (little[u] + w) * (little[u] + w)<disc[v])
 //				{
 //					disc[v] = disc[u] - little[u] * little[u] + (little[u] + w) * (little[u] + w);
