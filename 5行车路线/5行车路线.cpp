@@ -1,167 +1,108 @@
 //#include <iostream>
+//#include <memory.h>
 //#include <queue>
+//const long long  maxn = 1000;
 //using namespace std;
-//struct EDGE {
-//	long long  w, v, next, type;
-//}e[200010];
-//long long  next[100001];
-//long long  disc[100001];
-//long long  head[100001];
-//long long  little[1000001];//到某个节点连续走小路的长度
-//long long  n, m, s, cnt;
+//long long  big[maxn][maxn];
+//long long  small[maxn][maxn];
+//long long disc1[maxn], disc2[maxn];
+//long long  n, m;
 //struct node {
 //	long long  u, dis, type;
+//
 //	bool operator <(const node& rhs) const {
 //		return dis > rhs.dis;
+//
 //	}
 //};
-//void addedge(long long  u, long long  v, long long  w, long long  type)
-//{
-//	cnt++;
-//	e[cnt].v = v;
-//	e[cnt].w = w;
-//	e[cnt].next = head[u];
-//	e[cnt].type = type;
-//	head[u] = cnt;
-//}
 //void dijkstra()
 //{
 //	priority_queue <node> Q;
-//	disc[s] = 0;
-//	Q.push(node{ s, 0 });
+//	disc1[1] = 0;
+//	disc2[1] = 0;
+//	Q.push(node{ 1 , 0,1 });
+//	Q.push(node{ 1 , 0,0 });
+//	long long  visit[maxn][2];
+//	memset(visit, 0, sizeof visit);
 //	while (!Q.empty())
 //	{
 //		node fnt = Q.top();
 //		Q.pop();
 //		long long  u = fnt.u, d = fnt.dis;
-//
-//		if (d > disc[u]) continue;
-//		for (long long  i = head[u]; i; i = e[i].next)
+//		if (visit[u][fnt.type])
+//			continue;
+//		visit[u][fnt.type] = true;
+//		if (fnt.type == 0)//上一次走的大路，这次两种都可以走
 //		{
-//			long long  v = e[i].v, w = e[i].w;
-//			if (e[i].type == 0)
+//			for (int i = 1; i <= n; i++)
 //			{
-//				if (disc[v] > disc[u] + w)
+//				if (disc1[i] > disc1[u] + big[u][i])
 //				{
-//					disc[v] = disc[u] + w;
-//					Q.push(node{ v,disc[v] });
-//					little[v] = 0;
+//					disc1[i] = disc1[u] + big[u][i];
+//					Q.push(node{ i,disc1[i],0 });
+//				}
+//				if (disc2[i] > disc1[u] + small[u][i] * small[u][i])
+//				{
+//					disc2[i] = disc1[u] + small[u][i] * small[u][i];
+//					Q.push(node{ i,disc2[i],1 });
 //				}
 //			}
-//			else
-//			{
-//				if (disc[u] - little[u] * little[u] + (little[u] + w) * (little[u] + w)<disc[v])
-//				{
-//					disc[v] = disc[u] - little[u] * little[u] + (little[u] + w) * (little[u] + w);
-//					little[v] = little[u] + w;
-//					Q.push(node{ v,disc[v] });
-//				}
-//			}
-//			
 //		}
+//		else
+//		{
+//			for (int i = 1; i <= n; i++)
+//			{
+//				if (disc1[i] > disc2[u] + big[u][i])
+//				{
+//					disc1[i] = disc2[u] + big[u][i];
+//					Q.push(node{ i,disc1[i],0 });
+//				}
+//			}
+//		}
+//
 //	}
 //}
 //int  main()
 //{
+//	const int inf = 1e9;
 //	cin >> n >> m;
-//	s = 1;
-//	for (long long  i = 1; i <= n; i++)
+//	for (int i = 1; i <= n; i++)
 //	{
-//		disc[i] = 2147483647;
+//		disc1[i] = inf;
+//		disc2[i] = inf;
 //	}
-//	for (long long  i = 1; i <= m; i++)
+//	for (int i = 1; i <= n; i++)
+//		for (long long j = 1; j <= n; j++)
+//		{
+//			big[i][j] = inf;
+//			small[i][j] = inf;
+//		}
+//	for (int i = 1; i <= m; i++)
 //	{
-//		long long  type, u, v, w;
-//		cin >> type >> u >> v >> w;
-//		addedge(v, u, w, type);
-//		addedge(u, v, w, type);
+//		long long  t, u, v, w;
+//		cin >> t >> u >> v >> w;
+//		if (t == 0)
+//		{
+//			big[u][v] = min(w, big[u][v]);
+//			big[v][u] = min(w, big[u][v]);
+//		}
+//		else
+//		{
+//			small[u][v] = min(w, small[u][v]);
+//			small[v][u] = min(w, small[v][u]);
+//		}
 //	}
+//	for (int k = 1; k <= n; k++)
+//		for (int i = 1; i <= n; i++)
+//			for (int j = 1; j <= n; j++)
+//				if (small[i][j] > small[i][k] + small[k][j])
+//					small[i][j] = small[i][k] + small[k][j];
 //	dijkstra();
-//
-//	cout << disc[n];
+//	cout << min(disc1[n], disc2[n]);
 //	return 0;
 //}
-//
-////#include<iostream>
-////#include<queue>
-////using namespace std;
-////const long long inf = pow(2,30);
-////const long long maxn = 100001;
-////long long n, m, big[maxn][maxn], small[maxn][maxn], disc_big[maxn], disc_small[maxn];
-////bool visit[maxn];
-////void fun()
-////{
-////	for (int i = 0; i < maxn; i++)
-////	{
-////		disc_big[i] = inf;
-////		disc_small[i] = inf;
-////	}
-////	queue<int> q;
-////	disc_big[1] = disc_small[1] = 0;
-////	q.push(1);
-////	visit[1] = 1;
-////	while (!q.empty())
-////	{
-////		int u = q.front();
-////		q.pop();
-////		visit[u] = 0;
-////		for (int i = 1; i <= n; i++)
-////		{
-////			long long w = big[u][i];
-////			if (disc_big[i] > disc_big[u] + w)//大路->大路 
-////			{
-////				disc_big[i] = disc_big[u] + w;
-////				if (!visit[i])
-////				{
-////					q.push(i);
-////					visit[i] = 1;
-////				}
-////			}
-////			if (disc_big[i] > disc_small[u] + w)//小路->大路
-////			{
-////				disc_big[i] = disc_small[u] + w;
-////				if (!visit[i])
-////				{
-////					q.push(i);
-////					visit[i] = 1;
-////				}
-////			}
-////			if (small[u][i] < inf)//如果小路能到达 
-////			{
-////				w = small[u][i] * small[u][i];
-////				if (disc_small[i] > disc_big[u] + w)//走小路
-////				{
-////					disc_small[i] = disc_big[u] + w;
-////					if (!visit[i])
-////					{
-////						q.push(i);
-////						visit[i] = 1;
-////					}
-////				}
-////			}
-////		}
-////	}
-////}
-////int main()
-////{
-////	memset(small, inf, sizeof(small));
-////	memset(big, inf, sizeof(big));
-////	cin >> n >> m;
-////	for (int i = 1; i <= m; i++)
-////	{
-////		int t,u, v, w;
-////		cin >> t >> u >> v >>w;
-////		if (t == 1 && small[u][v] > w)
-////			small[u][v] = small[v][u] = w;
-////		else if (t == 0 && big[u][u] > w)
-////			big[u][v] = big[v][u] = w;
-////	}
-////	for (int k = 1; k <= n; k++)
-////		for (int i = 1; i <= n; i++)
-////			for (int j = 1; j <= n; j++)
-////				if (small[i][j] > small[i][k] + small[k][j])
-////					small[i][j] = small[j][i] = small[i][k] + small[k][j];
-////	fun();
-////	cout << min(disc_big[n], disc_small[n]);
-////	return 0;
-////}
+////4 4
+////1 1 2 1
+////1 2 3 2
+////1 3 4 1
+////0 1 2 6
