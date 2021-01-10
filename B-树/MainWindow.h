@@ -2,7 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
-#include "familytree.h"
+#include "Btree.h"
 #include "tree.h"
 
 class MainWindow : public QMainWindow
@@ -14,16 +14,12 @@ public:
     Ui::MainWindowClass ui;
     MainWindow(QWidget *parent = Q_NULLPTR);
     ~MainWindow();
-    void draw(Node*);
+    void draw(BTreeNode*);
     void resizeEvent(QResizeEvent* event);
     Tree* tree;
-    Node* front,*back;
-    void add_front(Node*);
-    void add_back(Node*);
 public slots:
+    void on_Find_clicked();
+    void on_Insert_clicked();
+    void on_Delete_clicked();
 
-    void on_ActionSave_triggered();//µ¼³öexcel
-    void on_ButtonName_clicked();
-    void on_ButtonDate_clicked();
-    void on_ButtonRelative_clicked();
 };

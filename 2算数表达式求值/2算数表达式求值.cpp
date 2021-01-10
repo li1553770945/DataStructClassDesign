@@ -1,3 +1,4 @@
+//#define _CRT_SECURE_NO_WARNINGS
 //#include <iostream>
 //#include <stack>
 //#include <algorithm>
@@ -245,6 +246,7 @@
 //}
 //int main()
 //{
+//	//freopen("1.txt", "r", stdin);
 //	while(true)
 //	{
 //		string suffix;

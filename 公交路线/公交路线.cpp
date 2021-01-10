@@ -1,440 +1,293 @@
-//#include<iostream>
-//#include<fstream>
-//#include<stdio.h>
-//#include<windows.h>
+//#include <iostream>	
+//#include <fstream>
+//#include <string>
+//#include <vector>
+//#include <map>
+//#include <queue>
+//const int int_inf = 2147483647;
+//const int max_n = 1000001,max_e = 3000001;
 //using namespace std;
-//#define OK true
+//struct EDGE {
+//	int w, v, next;
+//}e[max_e];
 //
-//
-//struct Station
-//{
-//    int* bus; //经过该站点的公交车的编号
-//    int Number;         //经过该站点的公交车数量
-//    char* name;     //名称
-//    Station()
-//    {
-//        bus = new int[50];
-//        name = new char[80];
-//    }
+//int head[max_n];
+//string buses_name[1000];
+//int disc[max_n];
+//map <string, vector<int>> stops_to_node;//map[i]里面的所有数字表示所有站点相同但是公交路线不同的点的序号
+//void addedge(int,int,int);
+//struct Stop {
+//	string name;
+//	int bus_num;
+//	Stop(string _name, int id)
+//	{
+//		name = _name;
+//		bus_num = id;
+//	}
 //};
-//
-//struct Bus
-//{
-//    int No;        //该公交车的编号
-//    int Number;     //该公交车经过的站点数量
-//    int* route;    //该公交车的路线
-//    Bus()
-//    {
-//        route = new int[80];
-//    }
-//};
-//
-//struct Map
-//{
-//    Bus* bus;          //该城市的公交车
-//    Station* station; //该城市的站点
-//    int Bus_Number;           //公交车数量
-//    int Station_Number;       //站点数量
-//    Map()
-//    {
-//        bus = new Bus[1000];
-//        station = new Station[10000];
-//        Bus_Number = 0;
-//        Station_Number = 0;
-//        int i = 0;
-//        for (i = 0; i < 1000; i++)
-//        {
-//            bus[i].Number = 1;
-//        }
-//        for (i = 0; i < 10000; i++)
-//        {
-//            station[i].Number = 0;
-//        }
-//    }
-//};
-//
-//
-//typedef struct Bus_RouteInfo
-//{
-//    int bus;
-//    int before;
-//    int cur;
-//} Bus_RouteInfo;
-//
-//
-//typedef struct QNode
-//{
-//    Bus_RouteInfo data;
-//    QNode* next;
-//} QNode, * Queue;
-//
-//
-//typedef struct
-//{
-//    Queue front; //队头指针
-//    Queue rear;  //队尾指针
-//} LinkQueue;
-//
-//int visited[10000] = { 0 };
-//
-//int InitQueue(LinkQueue& Q);          //构造一个空队列Q
-//int EnQueue(LinkQueue& Q, Bus_RouteInfo e); //插入元素e作为新的队尾元素，前提Q存在
-//Bus_RouteInfo DeQueue(LinkQueue& Q);           //若队列不空，删除队头元素,返回其值，前提Q存在
-//int GetMap(Map& M);
-//int locate_station(Map& M, char name[30]);
-//int locate_bus(Map& M, int No);
-//int GetBusStation(Map& M, char temp[60]);
-//int LeastTransfers(Map& M, char name_1[60], char name_2[60]);
-//int TraversalSite_CD(Map& M, int v1, int v2);
-//bool LeastSite(Map& M, char name_1[60], char name_2[60]);
-//int TraversalSite_AD(Map& M, int v1, int v2);
-//void Print(Map M);
-////南堡公园站,中山北路萨家湾站,西宁社区站
-//
-//
-//bool LeastSite(Map& M, char name_1[60], char name_2[60])
-//{
-//    int v1 = locate_station(M, name_1);
-//    for (int i = 1; i < 10000; i++)
-//    {
-//        visited[i] = 0;
-//    }
-//    int v2 = locate_station(M, name_2);
-//    TraversalSite_AD(M, v2, v1);
-//    return OK;
-//}
-//
-//
-//int TraversalSite_AD(Map& M, int v1, int v2)
-//{
-//    Bus_RouteInfo e[8000];
-//    for (int i = 1; i < 8000; i++)
-//    {
-//        e[i].cur = i;
-//        e[i].bus = 0;
-//    }
-//    Bus_RouteInfo e0;
-//    int Number = 1;
-//    LinkQueue Q;
-//    InitQueue(Q);
-//    EnQueue(Q, e[v1]);
-//    visited[v1] = 1;
-//    while (1)
-//    {
-//        int k = 1;
-//        Number++;
-//        e0.cur = -1;
-//        EnQueue(Q, e0);
-//        while (Q.front != Q.rear)
-//        {
-//            v1 = DeQueue(Q).cur;
-//            if (v1 == -1)
-//                break;
-//            for (int i = 1; i <= M.station[v1].Number; i++)
-//            {
-//                int bus1 = locate_bus(M, M.station[v1].bus[i]);
-//                for (int j = 1; j <= M.bus[bus1].Number; j++)
-//                {
-//                    if (M.bus[bus1].route[j] == v1)
-//                    {
-//                        if (M.bus[bus1].route[j + 1] == v2 || M.bus[bus1].route[j - 1] == v2)
-//                        {
-//                            int bus = e[v1].bus;
-//                            printf("最少经过%d个站点\n", Number);
-//                            printf("%s(起点,乘坐%d路公交车)-->", M.station[v2].name, M.bus[bus1].No);
-//                            //printf("%s(乘坐%d路公交车)-->", M.station[v1].name, M.bus[bus1].No);
-//                            Number--;
-//                            while (Number--)
-//                            {
-//                                if (Number == 0)
-//                                    printf("%s(终点)\n\n", M.station[v1].name);
-//                                else
-//                                    printf("%s(乘坐%d路公交车)-->", M.station[v1].name, bus);
-//                                v1 = e[v1].before;
-//                                bus = e[v1].bus;
-//                            }
-//                            return 1;
-//                        }
-//
-//                        if (!visited[M.bus[bus1].route[j - 1]] && j - 1 > 0)
-//                        {
-//                            e[M.bus[bus1].route[j - 1]].bus = M.bus[bus1].No;
-//                            e[M.bus[bus1].route[j - 1]].before = v1;
-//                            EnQueue(Q, e[M.bus[bus1].route[j - 1]]);
-//                            visited[M.bus[bus1].route[j - 1]] = 1;
-//                        }
-//                        if (!visited[M.bus[bus1].route[j + 1]] && j + 1 <= M.bus[bus1].Number)
-//                        {
-//                            e[M.bus[bus1].route[j + 1]].bus = M.bus[bus1].No;
-//                            e[M.bus[bus1].route[j + 1]].before = v1;
-//                            EnQueue(Q, e[M.bus[bus1].route[j + 1]]);
-//                            visited[M.bus[bus1].route[j + 1]] = 1;
-//                        }
-//                        break;
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-//int LeastTransfers(Map& M, char name_1[60], char name_2[60])
-//{
-//    int v1 = locate_station(M, name_1);
-//    for (int i = 1; i < 10000; i++)
-//    {
-//        visited[i] = 0;
-//    }
-//    int v2 = locate_station(M, name_2);
-//    TraversalSite_CD(M, v2, v1);
-//    return 1;
-//}
-//int TraversalSite_CD(Map& M, int v1, int v2) //Adjacency point diffusion邻接点扩散 Connected point diffusion连通点扩散
-//{
-//    Bus_RouteInfo e[8000];
-//    for (int i = 1; i < 8000; i++)
-//    {
-//        e[i].cur = i;
-//        e[i].bus = 0;
-//    }
-//    Bus_RouteInfo e0;
-//    int Number = 1;
-//    LinkQueue Q;
-//    InitQueue(Q);
-//    EnQueue(Q, e[v1]);
-//    visited[v1] = 1;
-//    while (1)
-//    {
-//        int k = 1;
-//        Number++;
-//        e0.cur = -1;
-//        EnQueue(Q, e0);
-//        while (Q.front != Q.rear)
-//        {
-//            v1 = DeQueue(Q).cur;
-//            if (v1 == -1)
-//                break;
-//            for (int i = 1; i <= M.station[v1].Number; i++)
-//            {
-//                int bus1 = locate_bus(M, M.station[v1].bus[i]);
-//                for (int j = 1; j <= M.bus[bus1].Number; j++)
-//                {
-//                    if (M.bus[bus1].route[j] == v2)
-//                    {
-//                        int bus2;
-//                        bus2 = locate_bus(M, e[v1].bus);
-//                        printf("最少转%d次车\n", Number - 1);
-//                        printf("%s(起点,乘坐%d路公交车)-->", M.station[v2].name, M.station[v1].bus[i]);
-//                        --Number;
-//                        while (Number--)
-//                        {
-//                            if (Number == 0)
-//                                printf("%s(终点)\n\n", M.station[v1].name);
-//                            else
-//                                printf("%s(换乘%d路公交车)-->", M.station[v1].name, M.bus[bus2].No);
-//                            v1 = e[v1].before;
-//                            bus2 = locate_bus(M, e[v1].bus);
-//                        }
-//                        return 1;
-//                    }
-//                    if (!visited[M.bus[bus1].route[j]])
-//                    {
-//                        e[M.bus[bus1].route[j]].bus = M.bus[bus1].No;
-//                        e[M.bus[bus1].route[j]].before = v1;
-//                        EnQueue(Q, e[M.bus[bus1].route[j]]);
-//                        visited[M.bus[bus1].route[j]] = 1;
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-//int GetBusStation(Map& M, char temp[60])
-//{
-//    //cout<<temp<<endl;
-//    int index = locate_station(M, temp);
-//    if (!index)
-//    {
-//        strcpy(M.station[++M.Station_Number].name, temp);
-//        index = M.Station_Number;
-//    }
-//    M.bus[M.Bus_Number].route[M.bus[M.Bus_Number].Number] = index;
-//    M.station[index].Number++;
-//    M.station[index].bus[M.station[index].Number] = M.bus[M.Bus_Number].No;
-//    for (int i = 0; i < 60; i++)
-//    {
-//        temp[i] = '\0';
-//    }
-//    return index;
-//}
-//int locate_station(Map& M, char name[60])
-//{
-//    for (int i = 1; i <= M.Station_Number; i++)
-//    {
-//        if (strcmp(M.station[i].name, name) == 0)
-//            return i;
-//    }
-//    return 0;
-//}
-//int locate_bus(Map& M, int No)
-//{
-//    for (int i = 1; i <= M.Bus_Number; i++)
-//    {
-//        if (M.bus[i].No == No)
-//            return i;
-//    }
-//    return 0;
-//}
-//void Print(Map M)
-//{
-//    for (int i = 1; i <= M.Bus_Number; i++)
-//    {
-//        printf("%d路\t", M.bus[i].No);
-//        for (int j = 1; j <= M.bus[i].Number; j++)
-//        {
-//            printf("%s ", M.station[M.bus[i].route[j]].name);
-//        }
-//        printf("\n");
-//    }
-//}
-//
-//int GetMap(Map& M)
-//{
-//    int k = 0;
-//    char temp[60];
-//    char ch;
-//    FILE* fp;
-//    if ((fp = fopen("南京公交线路.txt", "r")) == NULL)
-//    {
-//        printf("can't open this file\n");
-//        system("pause");
-//        exit(0);
-//    }
-//    for (int i = 1; i <= 1000; i++)
-//    {
-//        M.bus[i].Number = 1;
-//    }
-//    M.Bus_Number++;
-//    fscanf(fp, "%d", &M.bus[M.Bus_Number].No);
-//    while (ch != ' ')
-//        ch = fgetc(fp);
-//    while (1)
-//    {
-//        ch = fgetc(fp);
-//        if (feof(fp))
-//        {
-//            temp[k] = '\0';
-//            GetBusStation(M, temp);
-//            break;
-//        }
-//        if (ch == '\n')
-//        {
-//            temp[k] = '\0';
-//            GetBusStation(M, temp);
-//            //printf("%s",bus[i].route[j]);
-//            k = 0;
-//            char ch2;
-//            ch2 = fgetc(fp);
-//            if (feof(fp))
-//                break;
-//            fseek(fp, -1L, 1);
-//            fscanf(fp, "%d", &M.bus[++M.Bus_Number].No);
-//            while (ch != ' ')
-//                ch = fgetc(fp);
-//            continue;
-//        }
-//        if (ch == ' ')
-//            continue;
-//        if (ch == ',')
-//        {
-//            temp[k] = '\0';
-//            GetBusStation(M, temp);
-//            //printf("%s",bus[i].route[j]);
-//            k = 0;
-//            M.bus[M.Bus_Number].Number++;
-//            continue;
-//        }
-//        temp[k] = ch;
-//        k++;
-//    }
-//    fclose(fp);
-//    return 1;
-//}
-//
-//
-//int InitQueue(LinkQueue& Q)
-//{
-//    Q.front = (Queue)malloc(sizeof(QNode));
-//    if (!Q.front)
-//        exit(-2);
-//    Q.front->next = NULL;
-//    Q.rear = Q.front;
-//    return true;
-//}
-//int EnQueue(LinkQueue& Q, Bus_RouteInfo e)
-//{
-//    Queue p = (Queue)malloc(sizeof(QNode)); //开辟新结点
-//    if (!p)
-//        exit(-2);
-//    p->data = e;
-//    p->next = NULL;
-//    Q.rear->next = p;
-//    Q.rear = p;
-//    return true;
-//}
-//
-//Bus_RouteInfo DeQueue(LinkQueue& Q)
-//{
-//    Bus_RouteInfo e;
-//    if (Q.front == Q.rear)
-//    {
-//        printf("栈空");
-//        system("pause");
-//        exit(0);
-//    }
-//    Queue p = Q.front->next;
-//    e = p->data;
-//    Q.front->next = p->next;
-//    if (Q.rear == p)
-//        Q.rear = Q.front;
-//    free(p);
-//    return e;
-//}
-//
-//
+//vector <Stop> bus_stops;
+//vector <int> bus_to_stop[1000];
+//int bus_num, stop_num, cnt;
 //int main()
 //{
-//    Map M;
-//    GetMap(M);
-//    while (1)
-//    {
-//        system("cls");
-//        char name_1[60], name_2[60];
-//        printf("请输入起点:");
-//        scanf("%s", name_1);
-//        if (strcmp(name_1, "退出") == 0)
-//            break;
-//        if (!locate_station(M, name_1))
-//        {
-//            printf("未找到该站点,请检查输入是否有误!\n");
-//            system("pause");
-//            continue;
-//        }
-//        printf("请输入终点:");
-//        scanf("%s", name_2);
-//        if (strcmp(name_2, "退出") == 0)
-//            break;
-//        if (!locate_station(M, name_2))
-//        {
-//            printf("未找到该站点,请检查输入是否有误!\n");
-//            system("pause");
-//            continue;
-//        }
-//        printf("\n最少站数路线\n");
-//        LeastSite(M, name_1, name_2);
-//        printf("\n最少转车路线\n");
-//        LeastTransfers(M, name_1, name_2);
-//        system("pause");
-//    }
-//    system("pause");
-//    return 0;
+//	void load_file();
+//	void add_all_edge();
+//	void print_all_path();
+//	void input();
+//	load_file();
+//	add_all_edge();
+//	//print_all_path();
+//	input();
+//	return 0;
+//
+//}
+//vector <string> get_stops(string str)
+//{
+//	vector <string> ans;
+//	str += ' ';
+//	bool last_is_space = true;
+//	int left=-1;
+//	for (int i = 0; i < str.length(); i++)
+//	{
+//		if (str[i] == ' ')
+//		{
+//			
+//			if (last_is_space)
+//			{
+//				continue;
+//			}
+//			else
+//			{
+//				ans.push_back(str.substr(left,i- left));
+//				left = -1;
+//
+//			}
+//			last_is_space = true;
+//		}
+//		else
+//		{
+//			last_is_space = false;
+//			if (left == -1)
+//				left = i;
+//			
+//		}
+//	}
+//	return ans;
+//}
+//void input()
+//{
+//	void dj1(string,int*);
+//	void task(string start, string end,int);
+//	string start, end;
+//	while (1)
+//	{
+//		cout << "请输入起点:" << endl;
+//		cin >> start;
+//		while (!stops_to_node[start].size())
+//		{
+//			cout << "输入错误，请重新输入" << endl;
+//			cin >> start;
+//		}
+//		cout << "请输入终点:" << endl;
+//		cin >> end;
+//		while (!stops_to_node[end].size()||start==end)
+//		{
+//			cout << "输入错误，请重新输入" << endl;
+//			cin >> end;
+//		}
+//		task(start, end, 0);
+//		task(start, end, 1);
+//	}
+//	
+//}
+//void task(string start, string end,int type)
+//{	
+//	if(type==0)
+//		cout << "最短路径" << endl;
+//	else
+//		cout << "最小换乘" << endl;
+//	pair<int, int> dj(string,string,int*,int);
+//	int path[max_e];
+//	pair<int,int> result=dj(start,end, path,type);
+//	int end_pos = result.second;
+//	if (end_pos==-1)
+//	{
+//		cout << "抱歉，暂时没有找到您需要的线路" << endl;
+//		return;
+//	}
+//	vector<Stop> stops;
+//	int t = end_pos;
+//	while (bus_stops[t].name != start)
+//	{
+//		stops.push_back(bus_stops[t]);
+//		t = path[t];
+//	}
+//	reverse(stops.begin(), stops.end());
+//	cout << "从" << start << "开始" << endl;
+//	cout << "乘坐" << buses_name[stops[0].bus_num];
+//	int sum_transfor = 0, sum_pass = 0;
+//	for (int i = 0; i < stops.size(); i++)
+//	{
+//		if (i && stops[i].bus_num != stops[i - 1].bus_num)//换线
+//		{
+//			if (i + 1 < stops.size() && stops[i].name != stops[i + 1].name)//换了好几次，选择最后一次
+//			{
+//				cout << endl << "转乘" << buses_name[stops[i].bus_num];
+//				sum_transfor++;
+//			}
+//		}
+//		else
+//		{
+//			sum_pass++;
+//			cout << "->" << stops[i].name << " ";
+//		}
+//		if (stops[i].name == end)
+//			break;
+//
+//	}
+//	cout << endl << "中途共经过" << sum_pass << "个站，转乘" << sum_transfor << "次" << endl;
+//
+//}
+//void load_file()
+//{
+//	bus_stops.push_back(Stop("", 1));
+//	ifstream file("./公交路线/routine.txt");
+//	if (file.fail())
+//	{
+//		cout << "打开文件失败!!!" << endl;
+//		exit(EXIT_FAILURE);
+//	}
+//	while (!file.eof())
+//	{
+//		++bus_num;
+//		char str_temp[3000];
+//		string bus_name,str;
+//		file >> bus_name;
+//		if (file.fail())
+//		{
+//			bus_num--;
+//			break;
+//		}
+//		file.getline(str_temp,3000);
+//		str = string(str_temp);
+//		vector <string> stops = get_stops(str);
+//		//cout << bus_name;
+//		buses_name[bus_num] = bus_name;
+//		for (int i = 0;i<stops.size();i++)
+//		{
+//			bus_to_stop[bus_num].push_back(++stop_num);
+//			bus_stops.push_back(Stop(stops[i], bus_num));
+//			stops_to_node[stops[i]].push_back(stop_num);
+//		}
+//		//cout << endl;
+//	}
+//}
+//void add_all_edge()
+//{
+//	for (int i = 1; i <= bus_num; i++)
+//	{
+//		for (int j = 0; j < bus_to_stop[i].size() - 1; j++)
+//		{
+//			
+//			addedge(bus_to_stop[i][j], bus_to_stop[i][j + 1], 1);
+//			addedge(bus_to_stop[i][j+1], bus_to_stop[i][j], 1);
+//		}
+//	}
+//	
+//
+//	for (auto nodes:stops_to_node)
+//	{
+//		for (vector<int>::iterator it = nodes.second.begin(); (it+1) != nodes.second.end(); it++)
+//		{
+//			addedge(*it,*(it+1),0 );
+//			addedge(*(it + 1), *it, 0);
+//		}
+//	}
+//}
+//void print_all_path()
+//{
+//	for (int i = 1; i <= stop_num; i++)
+//	{
+//		cout << buses_name[bus_stops[i].bus_num] << "上的" << bus_stops[i].name << "可到达的站点有" << endl;
+//		for (int j = head[i]; j; j = e[j].next)
+//		{
+//
+//			cout << buses_name[bus_stops[e[j].v].bus_num] << "上的" << bus_stops[e[j].v].name << "权值为:" << e[j].w << endl;
+//
+//			//cout << j;
+//		}
+//		cout << endl;
+//	}
+//}
+//void addedge(int u, int v, int w)
+//{
+//	cnt++;
+//	e[cnt].v = v;
+//	e[cnt].w = w;
+//	e[cnt].next = head[u];
+//	head[u] = cnt;
+//}
+//pair<int,int> dj(string start,string end,int *path,int type)
+//{
+//	int path_all[max_e], min_disc_all = int_inf,end_all=-1,s_all=-1;
+//	for (int k = 0; k < stops_to_node[start].size();k++)
+//	{
+//		int s = stops_to_node[start][k];
+//		for (int j = 0; j < max_n; j++)
+//			disc[j] = int_inf;
+//		bool visit[max_n];
+//		memset(visit, 0, sizeof visit);
+//
+//		struct node {
+//			int u, dis;
+//			bool operator <(const node& rhs) const {
+//				return dis > rhs.dis;
+//
+//			}
+//		};
+//		priority_queue <node> Q;
+//		disc[s] = 0;
+//		Q.push(node{ s, 0 });
+//		while (!Q.empty())
+//		{
+//			node fnt = Q.top();
+//			Q.pop();
+//			int u = fnt.u, d = fnt.dis;
+//			visit[u] = true;
+//			for (int i = head[u]; i; i = e[i].next)
+//			{
+//				int v = e[i].v, w = e[i].w;
+//				if (type == 1)
+//					w = 1 - w;
+//				if (disc[v] > disc[u] + w && !visit[v])
+//				{
+//					path[v] = u;
+//					disc[v] = disc[u] + w;
+//					Q.push(node{ v,disc[v] });
+//				}
+//			}
+//		}
+//		int min_disc = int_inf;
+//		int end_temp;
+//		for (int j = 0; j < stops_to_node[end].size();j++)
+//		{
+//			if (min_disc > disc[stops_to_node[end][j]])
+//			{
+//				min_disc = disc[stops_to_node[end][j]];
+//				end_temp = stops_to_node[end][j];
+//			}
+//		}
+//		if (min_disc_all > min_disc)
+//		{
+//			for (int i = 0; i < max_e; i++)
+//				path_all[i] = path[i];
+//			end_all = end_temp;
+//			s_all = s;
+//		}
+//	}
+//	for (int i = 0; i < max_e; i++)
+//	{
+//		path[i] = path_all[i];
+//	}
+//	return make_pair(s_all, end_all);
 //}

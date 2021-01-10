@@ -7,49 +7,34 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="familytree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="InfoWindow.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Btree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="源文件">
-      <UniqueIdentifier>{1cd653a5-68e0-4404-8d93-6ac7ca759f57}</UniqueIdentifier>
+      <UniqueIdentifier>{dd9e44ef-10e4-4463-b2c2-dda7a0563ab0}</UniqueIdentifier>
     </Filter>
     <Filter Include="头文件">
-      <UniqueIdentifier>{71914ac8-ba5f-4d15-9e04-58fe4ffd9177}</UniqueIdentifier>
+      <UniqueIdentifier>{32897590-1c25-45bc-8d61-18f9c115fe75}</UniqueIdentifier>
     </Filter>
     <Filter Include="ui文件">
-      <UniqueIdentifier>{80ed2d9f-5cd1-4ecb-ada6-88e5fc8dfde2}</UniqueIdentifier>
+      <UniqueIdentifier>{02a1b31f-849e-4a90-9e0d-1d1cff3bcf3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="资源文件">
-      <UniqueIdentifier>{98100d0d-2d7b-4bd4-b674-dd196ba6b535}</UniqueIdentifier>
+      <UniqueIdentifier>{57eb12be-5394-40be-b4b0-98cbcc73e283}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
       <Filter>头文件</Filter>
     </QtMoc>
-    <QtMoc Include="InfoWindow.h">
-      <Filter>头文件</Filter>
-    </QtMoc>
-    <QtMoc Include="menu.h">
-      <Filter>头文件</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWindow.ui">
-      <Filter>ui文件</Filter>
-    </QtUic>
-    <QtUic Include="InfoWindow.ui">
       <Filter>ui文件</Filter>
     </QtUic>
   </ItemGroup>
@@ -59,13 +44,10 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="familytree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="x64\Debug\uic\ui_InfoWindow.h">
+    <ClInclude Include="Btree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

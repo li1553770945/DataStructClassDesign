@@ -120,9 +120,10 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <StackReserveSize>20000000</StackReserveSize>
+      <StackReserveSize>200000000</StackReserveSize>
       <StackCommitSize>
       </StackCommitSize>
+      <HeapCommitSize>200000000</HeapCommitSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,10 +150,8 @@
     <ClCompile Include="5行车路线\5行车路线.cpp" />
     <ClCompile Include="6哈希查找\6哈希查找.cpp" />
     <ClCompile Include="7排序算法比较\7排序算法比较.cpp" />
-    <ClCompile Include="huffman编码\huffman.cpp" />
-    <ClCompile Include="temp.cpp" />
     <ClCompile Include="公交路线\公交路线.cpp" />
-    <ClCompile Include="公交路线\公交路线1.cpp" />
+    <ClCompile Include="关键路径\关键路径.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

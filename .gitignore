@@ -167,3 +167,5 @@ $RECYCLE.BIN/
 *.docx
 *.doc
 *.jpg
+*.xlsx
+*.js

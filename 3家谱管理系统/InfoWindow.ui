@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoWindowClass</class>
+ <widget class="QDialog" name="InfoWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>379</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>信息</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>死亡日期：</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDateEdit" name="Deathdate">
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>9999</year>
+         <month>9</month>
+         <day>9</day>
+        </datetime>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>出生日期：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>性别：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="Work"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="Name"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="Addr"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>健在</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="Sex"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>地址：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>姓名：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>工作：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDateEdit" name="Birthday"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="Live"/>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>407</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="ButtonConfirm">
+     <property name="text">
+      <string>确认</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>Name</tabstop>
+  <tabstop>Sex</tabstop>
+  <tabstop>Birthday</tabstop>
+  <tabstop>Work</tabstop>
+  <tabstop>Addr</tabstop>
+  <tabstop>Live</tabstop>
+  <tabstop>Deathdate</tabstop>
+  <tabstop>ButtonConfirm</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

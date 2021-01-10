@@ -22,112 +22,31 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>姓名</string>
+           <string>输入数据：</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="Name"/>
+         <widget class="QLineEdit" name="Data"/>
         </item>
         <item>
-         <widget class="QPushButton" name="ButtonName">
+         <widget class="QPushButton" name="Find">
           <property name="text">
-           <string>查询</string>
+           <string>查找</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QPushButton" name="Insert">
           <property name="text">
-           <string>年</string>
+           <string>插入</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="Year"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QPushButton" name="Delete">
           <property name="text">
-           <string>月</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="Month"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>日</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="Day"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonDate">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>查询</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLineEdit" name="Front">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>是</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="Back">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>的</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="Relative">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ButtonRelative">
-          <property name="text">
-           <string>查询关系</string>
+           <string>删除</string>
           </property>
          </widget>
         </item>
@@ -138,7 +57,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>610</width>
+            <width>40</width>
             <height>20</height>
            </size>
           </property>

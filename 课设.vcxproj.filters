@@ -39,13 +39,7 @@
     <ClCompile Include="公交路线\公交路线.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="temp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="公交路线\公交路线1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="huffman编码\huffman.cpp">
+    <ClCompile Include="关键路径\关键路径.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

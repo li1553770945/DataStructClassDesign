@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7A13FAB1-8A55-4B07-9200-E917AE2E6F34}</ProjectGuid>
+    <ProjectGuid>{234CC050-0125-496B-A681-6157229BC0B9}</ProjectGuid>
     <Keyword>QtVS_v303</Keyword>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.18362.0</WindowsTargetPlatformVersion>
@@ -86,23 +86,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="menu.cpp" />
     <ClCompile Include="tree.cpp" />
     <QtRcc Include="MainWindow.qrc" />
-    <QtUic Include="InfoWindow.ui" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
-    <ClCompile Include="familytree.cpp" />
-    <ClCompile Include="InfoWindow.cpp" />
+    <ClCompile Include="Btree.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="familytree.h" />
+    <ClInclude Include="Btree.h" />
     <ClInclude Include="tree.h" />
-    <ClInclude Include="x64\Debug\uic\ui_InfoWindow.h" />
-    <QtMoc Include="menu.h" />
-    <QtMoc Include="InfoWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
